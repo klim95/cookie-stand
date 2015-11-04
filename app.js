@@ -1,26 +1,39 @@
 var hours = ["10am: ", "11am: ", "12pm: ", "1pm: ", "2pm: ", "3pm: ", "4pm: ", "5pm: "];
+<<<<<<< HEAD
 var stores = [];
 
 function CookieStand(storeLocation, minCustHr, maxCustHr, avgCookiesPerCust) {
 
 	this.storeLocation= storeLocation
+=======
+
+function CookieStand(minCustHr, maxCustHr, avgCookiesPerCust) {
+
+>>>>>>> 072d4717185620d292ffa8404162b4133e0cca60
 	this.minCustHr= minCustHr;
 	this.maxCustHr= maxCustHr;
 	this.avgCookiesPerCust= avgCookiesPerCust;
 	this.hourlySales= [];
 	this.totalCookies= 0;
+<<<<<<< HEAD
 	stores.push(this);
+=======
+>>>>>>> 072d4717185620d292ffa8404162b4133e0cca60
 
 	this.calcRand = function() {
 		return (Math.random() * (this.maxCustHr - this.minCustHr + 1)) + this.minCustHr;
 	};
+<<<<<<< HEAD
 
+=======
+>>>>>>> 072d4717185620d292ffa8404162b4133e0cca60
 	this.calcCookiesPerHr= function() {
 		for (var i=0; i < hours.length; i++) {
 		this.hourlySales.push(Math.floor(this.calcRand() * this.avgCookiesPerCust));
 		this.totalCookies += this.hourlySales[i];
 		}
 	};
+<<<<<<< HEAD
 
 
 	this.makeList= function() {
@@ -87,3 +100,146 @@ function showTable() {
 showTable();
 
 
+=======
+	this.makeList= function() {
+		this.calcCookiesPerHr(); // this is calling the method after we pushed the CookiesPerHr values into them
+		var ul = document.createElement('ul'); // declaring a new variable. its creating an empty html tag.
+		for (var i=0; i < hours.length; i++){
+			var li = document.createElement('li'); // declaring a new variable "li" within the loop. Creating empty li tags.
+			li.textContent = hours[i] + this.hourlySales[i]; // this is pushing the hourlySales values into the text for each li tag within the loop
+			ul.appendChild(li); // this is putting the li tag and adding it under the ul tag
+		}
+		// var li =
+		var pikePlace = document.getElementById('pikePlaceMarket');
+		pikePlace.appendChild(ul); //document refers to the html
+	};
+};
+
+pikePlaceMarket.makeList();
+
+
+
+
+// var seaTacAirport = {
+
+// 	minCustHr: 6,
+// 	maxCustHr: 44,
+// 	avgCookiesPerCust: 1.2,
+// 	hourlySales: [],
+
+// 	calcRand: function() {
+// 		return (Math.random() * (this.maxCustHr - this.minCustHr + 1)) + this.minCustHr;
+// 	},
+// 	calcCookiesPerHr: function() {
+// 		for (var i=0; i < hours.length; i++) {
+// 		this.hourlySales.push(Math.floor(this.calcRand() * this.avgCookiesPerCust));
+// 		}
+// 	},
+// 	makeList: function() {
+// 		this.calcCookiesPerHr(); // this is calling the method after we pushed the CookiesPerHr values into them
+// 		var ul = document.createElement('ul'); // declaring a new variable. its creating an empty html tag.
+// 		for (var i=0; i < hours.length; i++){
+// 			var li = document.createElement('li'); // declaring a new variable "li" within the loop. Creating empty li tags.
+// 			li.textContent = this.hourlySales[i]; // this is pushing the hourlySales values into the text for each li tag within the loop
+// 			ul.appendChild(li); // this is putting the li tag and adding it under the ul tag
+// 		}
+// 		document.body.appendChild(ul); //document refers to the html
+// 	},
+// 	calcTotalCookies: function() {
+
+// 	}
+// };
+
+
+// var southCenterMall = {
+
+// 	minCustHr: 11,
+// 	maxCustHr: 38,
+// 	avgCookiesPerCust: 1.9,
+// 	hourlySales: [],
+
+// 	calcRand: function() {
+// 		return (Math.random() * (this.maxCustHr - this.minCustHr + 1)) + this.minCustHr;
+// 	},
+// 	calcCookiesPerHr: function() {
+// 		for (var i=0; i < hours.length; i++) {
+// 		this.hourlySales.push(Math.floor(this.calcRand() * this.avgCookiesPerCust));
+// 		}
+// 	},
+// 	makeList: function() {
+// 		this.calcCookiesPerHr(); // this is calling the method after we pushed the CookiesPerHr values into them
+// 		var ul = document.createElement('ul'); // declaring a new variable. its creating an empty html tag.
+// 		for (var i=0; i < hours.length; i++){
+// 			var li = document.createElement('li'); // declaring a new variable "li" within the loop. Creating empty li tags.
+// 			li.textContent = this.hourlySales[i]; // this is pushing the hourlySales values into the text for each li tag within the loop
+// 			ul.appendChild(li); // this is putting the li tag and adding it under the ul tag
+// 		}
+// 		document.body.appendChild(ul); //document refers to the html
+// 	},
+// 	calcTotalCookies: function() {
+
+// 	}
+// };
+
+
+// var bellevueSquare = {
+
+// 	minCustHr: 20,
+// 	maxCustHr: 48,
+// 	avgCookiesPerCust: 3.3,
+// 	hourlySales: [],
+
+// 	calcRand: function() {
+// 		return (Math.random() * (this.maxCustHr - this.minCustHr + 1)) + this.minCustHr;
+// 	},
+// 	calcCookiesPerHr: function() {
+// 		for (var i=0; i < hours.length; i++) {
+// 		this.hourlySales.push(Math.floor(this.calcRand() * this.avgCookiesPerCust));
+// 		}
+// 	},
+// 	makeList: function() {
+// 		this.calcCookiesPerHr(); // this is calling the method after we pushed the CookiesPerHr values into them
+// 		var ul = document.createElement('ul'); // declaring a new variable. its creating an empty html tag.
+// 		for (var i=0; i < hours.length; i++){
+// 			var li = document.createElement('li'); // declaring a new variable "li" within the loop. Creating empty li tags.
+// 			li.textContent = this.hourlySales[i]; // this is pushing the hourlySales values into the text for each li tag within the loop
+// 			ul.appendChild(li); // this is putting the li tag and adding it under the ul tag
+// 		}
+// 		document.body.appendChild(ul); //document refers to the html
+// 	},
+// 	calcTotalCookies: function() {
+
+// 	}
+// };
+
+
+// var alki = {
+
+// 	minCustHr: 3,
+// 	maxCustHr: 24,
+// 	avgCookiesPerCust: 2.6,
+// 	hourlySales: [],
+
+// 	calcRand: function() {
+// 		return (Math.random() * (this.maxCustHr - this.minCustHr + 1)) + this.minCustHr;
+// 	},
+// 	calcCookiesPerHr: function() {
+// 		for (var i=0; i < hours.length; i++) {
+// 		this.hourlySales.push(Math.floor(this.calcRand() * this.avgCookiesPerCust));
+// 		}
+// 	},
+// 	makeList: function() {
+// 		this.calcCookiesPerHr(); // this is calling the method after we pushed the CookiesPerHr values into them
+// 		var ul = document.createElement('ul'); // declaring a new variable. its creating an empty html tag.
+// 		for (var i=0; i < hours.length; i++){
+// 			var li = document.createElement('li'); // declaring a new variable "li" within the loop. Creating empty li tags.
+// 			li.textContent = this.hourlySales[i]; // this is pushing the hourlySales values into the text for each li tag within the loop
+// 			ul.appendChild(li); // this is putting the li tag and adding it under the ul tag
+// 		}
+// 		document.body.appendChild(ul); //document refers to the html
+// 	},
+// 	calcTotalCookies: function() {
+
+// 	}
+// };
+>>>>>>> 072d4717185620d292ffa8404162b4133e0cca60
