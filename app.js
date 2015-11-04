@@ -1,5 +1,6 @@
 var hours = ["10am: ", "11am: ", "12pm: ", "1pm: ", "2pm: ", "3pm: ", "4pm: ", "5pm: "];
 var stores = [];
+var update = document.getElementById('update');
 
 function CookieStand(storeLocation, minCustHr, maxCustHr, avgCookiesPerCust) {
 
@@ -61,6 +62,30 @@ function displayTable () {
 		table.appendChild(tr);
 };
 
+var changeList = function(event) {
+	event.preventDefault();
+
+	if(!event.target.storeLocation.value || !event.target.minCustHr.value || !event.target.maxCustHr.value || !event.target.avgCookiesPerCust.value){
+		return alert('Must put values!');
+	}
+
+	var storeLocation = event.target.storeLocation.value;
+	var minCustHr = event.target.minCustHr.value;
+	minCustHr = parseInt(minCustHr);
+	var maxCustHr = event.target.maxCustHr.value;
+	maxCustHr = parseInt(maxCustHr);
+	var avgCookiesPerCust = event.target.avgCookiesPerCust.value;
+	avgCookiesPerCust = parseInt(avgCookiesPerCust);
+
+	var addedStore = new CookieStand(storeLocation, minCustHr, maxCustHr, avgCookiesPerCust);
+	addedStore.makeList();
+
+	event.target.storeLocation.value = "";
+	event.target.minCustHr.value = "";
+	event.target.maxCustHr.value = "";
+	event.target.avgCookiesPerCust.value = "";
+}
+
 var pikePlace = new CookieStand("Pike Place Market", 17, 88, 5.2);
 var seaTac= new CookieStand("SeaTac Aiport", 6, 44, 1.2);
 var southCenter= new CookieStand("Southcenter Mall", 11, 38, 1.9);
@@ -76,5 +101,7 @@ function showTable() {
 }
 
 showTable();
+
+update.addEventListener("submit", changeList);
 
 
